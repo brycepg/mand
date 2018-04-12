@@ -1,5 +1,7 @@
 # mand
 
+[![GitHub license](https://img.shields.io/github/license/brycepg/mand.svg)](https://github.com/brycepg/mand/blob/master/LICENSE)
+
 ``python -m`` doesn't run multiple modules. This package to provides a way to easily run multiple modules with the same interpreter.
 
 Running multiple modules on the same interpreter is great when you want side-effects such as
