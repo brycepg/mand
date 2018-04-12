@@ -28,7 +28,7 @@ You can also specify module paths or python files:
     mand path/to/my/file.py pdb
 
 
-You can also run mand via the ``-m`` statement:
+You can also run mand via the ``-m`` flag:
 
     python -m mand "a foo" "b bar"
 
