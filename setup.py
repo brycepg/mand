@@ -1,3 +1,4 @@
+import os
 import sys
 
 if sys.version_info < (3,4):
@@ -7,8 +8,13 @@ from setuptools import setup, find_packages
 
 import mand
 
-with open('README.md') as fh:
-    long_description = fh.read()
+try:
+    with open('README.md') as fh:
+        long_description = fh.read()
+except FileNotFoundError:
+    # This isn't working on py34 on travis-ci
+    # It's not important so ignore for now
+    pass
 
 setup(name=mand.__name__,
       version=mand.__version__,
