@@ -14,7 +14,7 @@ try:
 except FileNotFoundError:
     # This isn't working on py34 on travis-ci
     # It's not important so ignore for now
-    pass
+    long_description = ""
 
 setup(name=mand.__name__,
       version=mand.__version__,
