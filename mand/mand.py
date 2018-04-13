@@ -6,7 +6,7 @@ import runpy
 import re
 from contextlib import contextmanager
 
-VALID_PACKAGE_RE = r'^[a-z_]+$'
+VALID_PACKAGE_RE = r'^[A-Za-z_]+$'
 
 def mand(argv=None):
     """Execute each module in the same interpreter.
