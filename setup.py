@@ -29,4 +29,6 @@ setup(name=mand.__name__,
             'License :: OSI Approved :: MIT License',
             'Topic :: Software Development :: Libraries'
       ],
+      long_description_content_type='text/markdown',
+      url = 'https://github.com/brycepg/mand',
      )
