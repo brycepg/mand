@@ -40,7 +40,7 @@ You can also run mand via the ``-m`` flag:
 
 ```python
 from mand import mand
-mand(["a foo", "b foo"])
+mand(['a foo', 'b foo'])
 # Equivalent usage
-mand([("a", "foo bar"), ("b", "foo")])
+mand([('a', 'foo bar'), ('b', 'foo')])
 ```
