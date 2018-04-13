@@ -25,6 +25,8 @@ Usage with arguments:
 
 such that ``foo`` is an argument to module ``a`` and ``bar`` is an argument to module ``b``.
 
+---
+
 You can also specify module paths or python files:
 
     mand path/to/my/file.py pdb
