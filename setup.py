@@ -11,7 +11,7 @@ import mand
 try:
     with open('README.md') as fh:
         long_description = fh.read()
-    with open('CHANGELOG.txt') as fh:
+    with open('CHANGELOG.md') as fh:
         long_description += fh.read()
 except FileNotFoundError:
     # This isn't working on py34 on travis-ci

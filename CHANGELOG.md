@@ -1,3 +1,5 @@
+# Changelog
+
 0.9.6 (4/13/2018):
 
 - Allow modules with capitalization (such as cProfile)
