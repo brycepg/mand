@@ -4,7 +4,10 @@ import sys
 import os
 
 from mand import mand
-from .util import stem, module_name_from_path, nonpresent_module_filename, temp_directory
+from mand.util import temp_directory, create_module_file
+
+from .util import stem, module_name_from_path
+
 
 def test_running_multiple_modules(capsys):
     """Make sure all modules given are executed"""
@@ -12,10 +15,10 @@ def test_running_multiple_modules(capsys):
     module_b = "print('from module b')"
     with temp_directory() as directory_path:
         sys.path.append(directory_path)
-        module_a_path = _create_module_file(module_a,
-                                            directory_path)
-        module_b_path = _create_module_file(module_b,
-                                            directory_path)
+        module_a_path = create_module_file(module_a,
+                                           directory_path)
+        module_b_path = create_module_file(module_b,
+                                           directory_path)
         modules = [module_name_from_path(path)
                    for path in (module_a_path, module_b_path)]
         mand(modules)
@@ -30,7 +33,7 @@ print(sys.argv[1])
 """
     with temp_directory() as directory_path:
         sys.path.append(directory_path)
-        module_path = _create_module_file(a_module, directory_path)
+        module_path = create_module_file(a_module, directory_path)
         module_name = module_name_from_path(module_path)
         args = ["{module} cats".format(module=module_name),
                 "{module} dogs".format(module=module_name)]
@@ -45,7 +48,7 @@ print(sys.argv[1])
 """
     with temp_directory() as directory_path:
         sys.path.append(directory_path)
-        module_path = _create_module_file(a_module, directory_path)
+        module_path = create_module_file(a_module, directory_path)
         module_name = stem(os.path.basename(module_path))
         args = [(module_name, "cats"),
                 (module_name, "dogs")]
@@ -58,17 +61,7 @@ def test_module_paths(capsys):
     module_a = "print('from module a')"
     module_b = "print('from module b')"
     with temp_directory() as directory_path:
-        module_a_path = os.path.join(directory_path,
-                                     _create_module_file(module_a, directory_path),)
-        module_b_path = os.path.join(directory_path,
-                                     _create_module_file(module_b, directory_path),)
+        module_a_path = create_module_file(module_a, directory_path)
+        module_b_path = create_module_file(module_b, directory_path)
         mand([module_a_path, module_b_path])
     assert capsys.readouterr().out == "from module a\nfrom module b\n"
-
-
-def _create_module_file(txt, directory):
-    # Note this function does not clean up the file
-    name = nonpresent_module_filename()
-    with open(os.path.join(directory, name), 'w') as fh:
-        fh.write(txt)
-    return name

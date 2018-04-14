@@ -24,7 +24,7 @@ setup(name=mand.__name__,
       long_description=long_description,
       packages=[mand.__name__],
       license='MIT',
-      entry_points={'console_scripts': ['mand = mand:mand']},
+      entry_points={'console_scripts': ['mand = mand:main']},
       zip_safe=True,
       classifiers=[
             'Programming Language :: Python :: 3 :: Only',

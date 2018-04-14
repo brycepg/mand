@@ -5,4 +5,6 @@ __version__ = "0.9.5"
 if sys.version_info[0] < 3:
     raise Exception("Cannot run on python 2")
 
-from .mand import mand # pylint: disable=wrong-import-position
+# pylint: disable=wrong-import-position
+from .mand import mand, main
+from . import util

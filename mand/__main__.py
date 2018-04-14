@@ -1,5 +1,5 @@
 """-m level entry point"""
-from mand import mand
+from mand import main
 
 if __name__ == "__main__":
-    mand()
+    main()
